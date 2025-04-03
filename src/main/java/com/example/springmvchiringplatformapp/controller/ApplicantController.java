@@ -86,7 +86,7 @@ public class ApplicantController {
 
         model.addAttribute("appliedJobPosts", jobPostsMap.get("appliedPosts"));
         model.addAttribute("notAppliedJobPosts", jobPostsMap.get("unAppliedPosts"));
-        return "/applicant/apply-jobs";
+        return "applicant/apply-jobs";
     }
 
     @GetMapping("/view-applications")
