@@ -4,6 +4,7 @@
 html, body {
     margin: 0;
     min-width: 1050px;
+    scroll-behavior: smooth;
 }
 
 .master-resizable {
@@ -275,8 +276,8 @@ html, body {
     height: 100%;
     width: 100%;
     gap: 10px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     overflow-x: auto;
 }
@@ -289,8 +290,8 @@ html, body {
     height: 100%;
     width: 100%;
     gap: 15px;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     justify-self: flex-end;
 }

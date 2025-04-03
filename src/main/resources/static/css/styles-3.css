@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rock+Salt&display=swap");
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -297,7 +301,7 @@ main {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .linear-container-right {
@@ -633,6 +637,22 @@ main {
     right: 10px;
     bottom: 250px;
     overflow-y: auto;
+}
+
+.container-scrollable-c-2 {
+    display: flex;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    height: 100%;
+    align-items: center;
+}
+
+.container-scrollable-c-2:hover {
+    overflow-x: auto;
+}
+
+.container-scrollable-c-2:active {
+    overflow-x: auto;
 }
 
 /* Page: View Applicant */

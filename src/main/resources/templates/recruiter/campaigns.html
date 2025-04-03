@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" th:href="@{/css/styles-3.css}"/>
-    <link href="/static/css/styles-3.css" rel="stylesheet"/>
+<!--    <link href="/static/css/styles-3.css" rel="stylesheet"/>-->
     <link rel="icon" th:href="@{/images/favicon.svg}"/>
     <title>Hiring Platform</title>
 </head>
@@ -42,7 +42,9 @@
                     <div class="linear-container">
                         <div class="linear-container-left">
                             <h3 th:text="${jobPost.title}">Title</h3>
-                            <h3 class="h3-desc" th:text="${jobPost.desc}">Description</h3>
+                            <div class="container-scrollable-c-2">
+                                <h3 class="h3-desc" th:text="${jobPost.desc}">Description</h3>
+                            </div>
                         </div>
                         <div class="linear-container-right">
                             <a class="btn" th:href="@{/recruiter/campaigns/edit(postId=${jobPost.postId})}">Edit</a>
