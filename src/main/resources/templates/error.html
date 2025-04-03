@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="html-2" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="/static/css/styles.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body class="body-2">
+<header class="header-2">
+    <div class="site-bar">
+        <div class="site-bar-left"></div>
+        <div class="site-bar-center">
+            <a class="site-name" href="/HiringPlatform/">Hiring Platform</a>
+        </div>
+        <div class="site-bar-right">
+        </div>
+    </div>
+</header>
+<main class="scrollable-main">
+    <div class="container-flex-center translate-top-1">
+        <h2 class="h1-1">Error.</h2>
+        <h2 class="h2-1" th:text="${param.msgError}">Error.</h2>
+    </div>
+</main>
+<footer class="footer-2"></footer>
+</body>
+
+</html>

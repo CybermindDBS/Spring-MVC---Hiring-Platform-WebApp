@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="html-2" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="/static/css/styles.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body class="body-2">
+<header class="header-2">
+    <div class="site-bar">
+        <div class="site-bar-left">
+            <a class="site-heading" href="/HiringPlatform/">Applicant Portal</a>
+        </div>
+        <div class="site-bar-center">
+            <div class="container-flex-right nav-container">
+                <a class="nav-item active" href="/HiringPlatform/">Home</a>
+                <a class="nav-item" href="/HiringPlatform/applicant/profile">Profile</a>
+                <a class="nav-item" href="/HiringPlatform/applicant/apply-jobs">Apply Jobs</a>
+                <a class="nav-item" href="/HiringPlatform/applicant/view-applications">My Applications</a>
+            </div>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="/HiringPlatform/logout">Logout</a>
+        </div>
+    </div>
+</header>
+<main class="scrollable-main">
+    <div class="container-flex-center translate-top-1">
+        <h2 class="h1-1" th:text="'Welcome, ' + ${session.name} + '!'">Welcome, Name!</h2>
+        <h2 class="h2-1" th:text="${jobCount} + '+ jobs for you to explore. Find your dream job now!'">10+ jobs for you
+            to explore. Find your dream job now!</h2>
+        <div>
+            <div class="container-flex-center-2">
+                <a class="btn btn-long margin-top-40" href="/HiringPlatform/applicant/apply-jobs">Start Applying</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer-2"></footer>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles-3.css}"/>
+    <link href="/static/css/styles-3.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body>
+<header>
+    <div class="site-bar">
+        <div class="site-bar-left">
+            <a class="site-heading" href="/HiringPlatform/">Recruiter Portal</a>
+        </div>
+        <div class="site-bar-center">
+            <div class="nav-container">
+                <a class="nav-item" href="/HiringPlatform/">Home</a>
+                <a class="nav-item" href="/HiringPlatform/recruiter/profile">Profile</a>
+                <a class="nav-item active" href="/HiringPlatform/recruiter/campaigns">Campaigns</a>
+            </div>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="/HiringPlatform/logout">Logout</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container-flex-center-full design-2-container">
+        <div class="card-large">
+            <h1 class="h1-small-italic-bold">Applicant Details</h1>
+            <div class="inner-group">
+                <label>Name</label>
+                <h2 th:text="':&nbsp;&nbsp;&nbsp;&nbsp;' + ${applicant.name}">:&nbsp;&nbsp;&nbsp;&nbsp; Some Name</h2>
+            </div>
+            <div class="inner-group">
+                <label>Email</label>
+                <h2 th:text="':&nbsp;&nbsp;&nbsp;&nbsp;' + ${applicant.email}">:&nbsp;&nbsp;&nbsp;&nbsp;
+                    SomeName@gmail.com</h2>
+            </div>
+            <div class="inner-group">
+                <label>Location</label>
+                <h2 th:text="':&nbsp;&nbsp;&nbsp;&nbsp;' + ${applicant.location}">:&nbsp;&nbsp;&nbsp;&nbsp; Chennai</h2>
+            </div>
+            <div class="inner-group">
+                <label>Experience</label>
+                <h2 th:text="':&nbsp;&nbsp;&nbsp;&nbsp;' + ${applicant.experience}">:&nbsp;&nbsp;&nbsp;&nbsp; 10</h2>
+            </div>
+            <div class="inner-group">
+                <label>Skills</label>
+                <h2 th:text="':&nbsp;&nbsp;&nbsp;&nbsp;' + ${applicant.skills}">:&nbsp;&nbsp;&nbsp;&nbsp; Java, React,
+                    MySql, Javascipt, HTML, CSS</h2>
+            </div>
+            <div class="inner-group margin-top-60">
+                <a class="btn" target="_blank" th:href="'/HiringPlatform/file/resume/' + ${applicant.email}">View
+                    Resume</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

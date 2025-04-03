@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link href="../static/styles.css" rel="stylesheet"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body>
+<header>
+    <div class="site-bar">
+        <div class="site-bar-left"></div>
+        <div class="site-bar-center">
+            <a class="site-name" href="home.html">Hiring Platform</a>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="login.html">Login</a>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="main-container-center">
+        <div class="register-container">
+            <div class="inner-group">
+                <h2 class="h1-3">Register as</h2>
+                <div class="user-type-selection-container">
+                    <select id="user-type-select">
+                        <option>recruiter</option>
+                        <option>job seeker</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="hidden" id="applicant-form">
+                <form class="login-form" enctype="multipart/form-data" method="post">
+                    <div class="inner-group-2">
+                        <label for="userid">Email :</label>
+                        <input name="userid" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="password">Password :</label>
+                        <input name="password" type="password">
+                    </div>
+                    <br>
+                    <div class="inner-group-2">
+                        <label for="name">Name :</label>
+                        <input name="name" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="location">Location :</label>
+                        <input name="location" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="experience">Experience :</label>
+                        <input name="experience" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="skills">Skills :</label>
+                        <input name="skills" placeholder="Skill 1, Skill 2, Skill 3, etc" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="resume">Resume :</label>
+                        <input name="resume" type="file">
+                    </div>
+                    <div class="inner-group-2">
+                        <div class="container-flex-right">
+                            <button class="btn" name="submit" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="hidden" id="recruiter-form">
+                <form class="login-form" enctype="multipart/form-data" method="post">
+                    <div class="inner-group-2">
+                        <label for="userid">Email :</label>
+                        <input name="userid" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="password">Password :</label>
+                        <input name="password" type="password">
+                    </div>
+                    <br>
+                    <div class="inner-group-2">
+                        <label for="name">Organization :</label>
+                        <input name="name" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="location">Location :</label>
+                        <input name="location" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="logo">Logo :</label>
+                        <input name="logo" type="file">
+                    </div>
+                    <div class="inner-group-2">
+                        <div class="container-flex-right">
+                            <button class="btn" name="submit" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<footer></footer>
+
+<script defer src="../static/user-type-selection.js"></script>
+</body>
+</html>

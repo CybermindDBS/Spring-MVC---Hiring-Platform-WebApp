@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles-2.css}"/>
+    <link href="/static/css/styles-2.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body>
+<div class="master-resizable">
+    <header class="header">
+        <div class="site-bar">
+            <div class="site-bar-left">
+                <a class="site-heading" href="/HiringPlatform/">Applicant Portal</a>
+            </div>
+            <div class="site-bar-center">
+                <div class="nav-container">
+                    <a class="nav-item" href="/HiringPlatform/">Home</a>
+                    <a class="nav-item" href="/HiringPlatform/applicant/profile">Profile</a>
+                    <a class="nav-item" href="/HiringPlatform/applicant/apply-jobs">Apply Jobs</a>
+                    <a class="nav-item active" href="/HiringPlatform/applicant/view-applications">My
+                        Applications</a>
+                </div>
+            </div>
+            <div class="site-bar-right">
+                <a class="btn" href="/HiringPlatform/logout">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-resizable main-layout-type-1">
+        <div class="container-flex--my-applications">
+            <div class="card--view-applications">
+                <div class="container" th:if="${!shortlisted.isEmpty() || !accepted.isEmpty()}">
+                    <h1 class="h1-medium-italic-bold">Action Required</h1>
+                    <h2 class="h2-medium-bold">
+                        Congratulations!, you have been shortlisted for the below
+                        company(s)
+                    </h2>
+                </div>
+                <div class="scrollable-container" th:if="${!shortlisted.isEmpty() || !accepted.isEmpty()}">
+                    <div class="container">
+                        <div class="container" th:each="jobApl, stat : ${accepted}">
+                            <div class="linear-container">
+                                <div class="linear-container-left">
+                                    <img alt="logo" loading="lazy"
+                                         th:src="@{'/file/logo/' + ${jobApl.jobPost.recruiter.email}}"/>
+                                    <h4 th:text="${jobApl.jobPost.recruiter.name}">Name</h4>
+                                    <h4>-</h4>
+                                    <h4 th:text="${jobApl.jobPost.title}">Title</h4>
+                                </div>
+                                <div class="linear-container-right">
+                                    <a class="btn btn-disabled">Accepted</a>
+                                </div>
+                            </div>
+                            <hr th:if="${!stat.last || !shortlisted.isEmpty()}">
+                        </div>
+
+                        <div class="container" th:each="jobApl, stat : ${shortlisted}">
+                            <div class="linear-container">
+                                <div class="linear-container-left">
+                                    <img alt="logo" loading="lazy"
+                                         th:src="@{'/file/logo/' + ${jobApl.jobPost.recruiter.email}}"/>
+                                    <h4 th:text="${jobApl.jobPost.recruiter.name}">Name</h4>
+                                    <h4>-</h4>
+                                    <h4 th:text="${jobApl.jobPost.title}">Title</h4>
+                                </div>
+                                <div class="linear-container-right">
+                                    <a class="btn" th:href="@{/applicant/accept-job-offer(jobAplId=${jobApl.id})}">Accept</a>
+                                </div>
+                            </div>
+                            <hr th:if="${!stat.last}">
+                        </div>
+                    </div>
+                </div>
+                <div class="container-flex--my-applications" th:if="${shortlisted.isEmpty() && accepted.isEmpty()}">
+                    <h2 class="h2-medium-bold">
+                        Your application(s) has not been shortlisted yet.
+                    </h2>
+                </div>
+            </div>
+
+
+            <div class="card-2--view-applications">
+                <h1 class="h1-small-italic-bold">My Applications</h1>
+                <div class="scrollable-container" th:if="${!applied.isEmpty() or !rejected.isEmpty()}">
+                    <div class="container" th:each="jobApl, stat : ${applied}">
+                        <div class="linear-container">
+                            <div class="linear-container-left">
+                                <img alt="logo" loading="lazy"
+                                     th:src="@{'/file/logo/' + ${jobApl.jobPost.recruiter.email}}"/>
+                                <h4 th:text="${jobApl.jobPost.recruiter.name}">Name</h4>
+                                <h4>-</h4>
+                                <h4 th:text="${jobApl.jobPost.title}">Title</h4>
+                            </div>
+                            <div class="linear-container-right">
+                                <a class="btn"
+                                   th:href="@{/applicant/delete-application(jobAplId=${jobApl.id})}">Delete</a>
+                            </div>
+                        </div>
+                        <hr th:if="${!stat.last}">
+                    </div>
+                    <div class="container" th:each="jobApl, stat : ${rejected}">
+                        <div class="linear-container">
+                            <div class="linear-container-left">
+                                <img alt="logo" loading="lazy"
+                                     th:src="@{'/file/logo/' + ${jobApl.jobPost.recruiter.email}}"/>
+                                <h4 th:text="${jobApl.jobPost.recruiter.name}">Name</h4>
+                                <h4>-</h4>
+                                <h4 th:text="${jobApl.jobPost.title}">Title</h4>
+                            </div>
+                            <div class="linear-container-right">
+                                <a class="btn btn-disabled">Rejected</a>
+                            </div>
+                        </div>
+                        <hr th:if="${!stat.last}">
+                    </div>
+                </div>
+                <h2 class="h2-medium-bold" th:if="${applied.isEmpty() && rejected.isEmpty()}">
+                    No applications have been created.
+                </h2>
+            </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+</div>
+</body>
+
+</html>

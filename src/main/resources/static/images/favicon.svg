@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+    <rect x="8" y="8" width="112" height="112" rx="24" fill="#222"/>
+    <text x="50%" y="50%" dy="0.35em" font-size="72" letter-spacing="4" font-family="Bebas Neue, sans-serif"
+          font-weight="bold" fill="white" text-anchor="middle">
+        hp
+    </text>
+</svg>

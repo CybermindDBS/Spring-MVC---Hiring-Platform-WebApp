@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="html-2" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="/static/css/styles.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body class="body-2">
+<header class="header-2">
+    <div class="site-bar">
+        <div class="site-bar-left"></div>
+        <div class="site-bar-center">
+            <a class="site-name" href="/HiringPlatform/">Hiring Platform</a>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="/HiringPlatform/register">Register</a>
+        </div>
+    </div>
+</header>
+<main class="scrollable-main">
+    <div class="container-flex-center">
+        <div class="login-container">
+            <h2 class="h1-3 margin-bottom-40" th:text="${msgLogin ?: 'Welcome back!'}">Welcome back!</h2>
+            <form class="login-form" method="post" th:action="@{/authenticate}" th:object="${credentials}">
+                <div class="inner-group">
+                    <label for="userid">Email</label>
+                    <input id="userid" required th:field="*{userId}" type="text">
+                </div>
+                <div class="inner-group">
+                    <label for="password">Password</label>
+                    <input id="password" required th:field="*{password}" type="password">
+                </div>
+                <div class="inner-group">
+                    <button class="btn" name="submit" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<footer class="footer-2"></footer>
+</body>
+
+</html>

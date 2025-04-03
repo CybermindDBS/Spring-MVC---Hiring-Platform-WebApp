@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="html-2" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="/static/css/styles.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body class="body-2">
+<header class="header-2">
+    <div class="site-bar">
+        <div class="site-bar-left">
+            <a class="site-heading" href="/HiringPlatform/">Applicant Portal</a>
+        </div>
+        <div class="site-bar-center">
+            <div class="container-flex-right nav-container">
+                <a class="nav-item" href="/HiringPlatform/">Home</a>
+                <a class="nav-item" href="/HiringPlatform/applicant/profile">Profile</a>
+                <a class="nav-item active" href="/HiringPlatform/applicant/apply-jobs">Apply Jobs</a>
+                <a class="nav-item" href="/HiringPlatform/applicant/view-applications">My Applications</a>
+            </div>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="/HiringPlatform/logout">Logout</a>
+        </div>
+    </div>
+</header>
+<div class="search-box">
+    <form method="post" th:action="@{/applicant/search-jobs}">
+        <input name="searchText" placeholder="Search jobs" type="text">
+        <button class="btn" type="submit">Search</button>
+    </form>
+</div>
+<main class="scrollable-main custom-main">
+    <div class="scrollable-container">
+        <div class="cards-container">
+            <div class="job-card" th:each="post : ${notAppliedJobPosts}">
+                <div class="logo-title-card">
+                    <div>
+                        <img alt="logo" class="logo" loading="lazy" th:src="@{'/file/logo/' + ${post.recruiter.email}}">
+                    </div>
+                    <h2 class="h2-2" th:text="${post.recruiter.name}">Company</h2>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Title:</h3>
+                    </div>
+                    <h3 class="h3-4" th:text="${post.title}">Full Stack Java Developer</h3>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Description:</h3>
+                    </div>
+                    <h3 class="h3-4 scrollable-container-2 height-150 job-desc-text" th:text="${post.desc}">We are
+                        seeking a skilled Full Stack Java Developer to join our team. You will be responsible for
+                        developing and maintaining web applications, ensuring high performance and responsiveness, and
+                        collaborating with cross-functional teams to deliver scalable software solutions.</h3>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Experience:</h3>
+                    </div>
+                    <h3 class="h3-4" th:text="${post.minExp}">10 years</h3>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Location:</h3>
+                    </div>
+                    <h3 class="h3-4" th:text="${post.location}">Chennai</h3>
+                </div>
+                <div class="container-flex-right">
+                    <form method="post" th:action="@{/applicant/apply}">
+                        <input name="postId" th:value="${post.postId}" type="hidden">
+                        <button class="btn btn-apply" type="submit">Apply</button>
+                    </form>
+                </div>
+            </div>
+            <div class="job-card" th:each="post : ${appliedJobPosts}">
+                <div class="logo-title-card">
+                    <div>
+                        <img alt="logo" class="logo" th:src="@{'/file/logo/' + ${post.recruiter.email}}">
+                    </div>
+                    <h2 class="h2-2" th:text="${post.recruiter.name}">Company</h2>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Title:</h3>
+                    </div>
+                    <h3 class="h3-4" th:text="${post.title}">Full Stack Java Developer</h3>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Description:</h3>
+                    </div>
+                    <h3 class="h3-4 scrollable-container-2 height-150 job-desc-text" th:text="${post.desc}">We are
+                        seeking a skilled Full Stack Java Developer to join our team. You will be responsible for
+                        developing and maintaining web applications, ensuring high performance and responsiveness, and
+                        collaborating with cross-functional teams to deliver scalable software solutions.</h3>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Experience:</h3>
+                    </div>
+                    <h3 class="h3-4" th:text="${post.minExp}">10 years</h3>
+                </div>
+                <div class="inner-group-3">
+                    <div>
+                        <h3 class="h3-3">Location:</h3>
+                    </div>
+                    <h3 class="h3-4" th:text="${post.location}">Chennai</h3>
+                </div>
+                <div class="container-flex-right">
+                    <a class="btn btn-disabled">Applied</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer-2"></footer>
+</body>
+
+</html>

@@ -1,0 +1,427 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rock+Salt&display=swap");
+
+/* Fonts available:
+    Rock Salt
+    Montserrat
+    Kanit
+    Arimo
+    Monoton
+    Alfa Slab One
+    Bebas Neue
+*/
+
+html {
+    height: 100%;
+    min-width: 1050px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    min-height: fit-content;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+}
+
+header {
+    height: 130px;
+    box-sizing: border-box;
+}
+
+main {
+    position: relative;
+    display: flex;
+    background: whitesmoke;
+    margin: 40px 40px;
+    padding: 100px 60px;
+    border: 1px none;
+    border-radius: 40px;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+footer {
+    position: relative;
+    background: white;
+    box-sizing: border-box;
+    margin-top: 40px;
+}
+
+.site-bar {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.site-bar-left {
+    height: 100%;
+    min-width: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: 40px;
+    margin-right: 20px;
+    width: fit-content;
+}
+
+.site-bar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.site-bar-right {
+    height: 100%;
+    min-width: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.site-name {
+    text-align: center;
+    color: black;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
+    font-weight: lighter;
+    letter-spacing: 25px;
+    user-select: none;
+    box-sizing: border-box;
+    text-decoration: none;
+
+}
+
+.site-heading {
+    text-align: center;
+    color: black;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
+    font-weight: lighter;
+    letter-spacing: 5px;
+    user-select: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    white-space: nowrap;
+
+}
+
+.nav-container {
+    height: 100%;
+    align-items: center;
+}
+
+.nav-item {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    text-align: center;
+    user-select: none;
+    box-sizing: border-box;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px 10px;
+    margin: 0px 10px;
+}
+
+.nav-item:hover {
+    color: grey;
+    border: 2px dotted white;
+}
+
+a.active {
+    color: grey;
+}
+
+.btn {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid;
+    border-radius: 10px;
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px 20px;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-color: black;
+}
+
+
+.btn-long {
+    padding: 15px 120px;
+}
+
+.main-container-center {
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.translate-top-1 {
+    top: -5%;
+}
+
+.container-flex-center-2 {
+    position: relative;
+    display: flex;
+    margin-top: 60px;
+    justify-content: center;
+    gap: 70px;
+    box-sizing: border-box;
+}
+
+
+.container-flex-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.h1-1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-style: italic;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.h1-2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-style: italic;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.h1-3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0px;
+    color: grey;
+    font-style: italic;
+}
+
+.h2-1 {
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+.h3-1 {
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+.login-container {
+    align-content: end;
+    width: 550px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 2px none;
+    box-shadow: 1px 1px 10px;
+    background: white;
+    border-radius: 30px;
+    padding: 80px 60px;
+}
+
+.inner-group {
+    position: relative;
+    display: block;
+    text-align: left;
+    margin: 30px 0;
+    box-sizing: border-box;
+}
+
+.inner-group label {
+    position: relative;
+    left: 0px;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.inner-group input {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px dotted;
+    border-radius: 10px;
+}
+
+.inner-group button {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+.register-container {
+    align-content: end;
+    min-height: fit-content;
+    max-width: 1000px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px none;
+    box-shadow: 1px 1px 10px;
+    background: white;
+    border-radius: 30px;
+    padding: 80px 60px;
+}
+
+.inner-group-2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin: 30px 0px;
+    box-sizing: border-box;
+}
+
+.inner-group-2 label {
+    position: relative;
+    flex-basis: 150px;
+    left: 0px;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+    align-content: center;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.inner-group-2 input[type="text"], .inner-group-2 input[type="number"], .inner-group-2 input[type="password"] {
+    position: relative;
+    right: 0px;
+    width: 500px;
+    height: 50px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    border: 2px dotted;
+    border-radius: 10px;
+}
+
+.inner-group-2 input[type="file"] {
+    width: 500px;
+    height: 50px;
+    flex-grow: 1;
+    padding-left: 0px;
+    align-content: center;
+    box-sizing: border-box;
+}
+
+
+.inner-group input, .inner-group-2 input {
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1rem;
+    padding-left: 20px;
+}
+
+.inner-group input::placeholder, .inner-group-2 input::placeholder {
+    font-family: "Kanit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.inner-group-2 button {
+    height: 50px;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+.inner-group-2-hr {
+    margin: 60px 0px;
+}
+
+#user-type-select {
+    width: 200px;
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0px;
+    border: 0px;
+    font-style: italic;
+    cursor: pointer;
+}
+
+#user-type-select option {
+    width: 200px;
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    margin: 0px;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
+.margin-bottom-120 {
+    margin-bottom: 120px;
+}
+
+.border {
+    border: 2px solid;
+}

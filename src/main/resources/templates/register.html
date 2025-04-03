@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="html-2" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="/static/css/styles.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body class="body-2">
+<header class="header-2">
+    <div class="site-bar">
+        <div class="site-bar-left"></div>
+        <div class="site-bar-center">
+            <a class="site-name" href="/HiringPlatform/">Hiring Platform</a>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="/HiringPlatform/login">Login</a>
+        </div>
+    </div>
+</header>
+<main class="scrollable-main">
+    <div class="container-flex-center">
+        <div class="register-container">
+            <div class="inner-group">
+                <h2 class="h1-3">Register as</h2>
+                <div class="user-type-selection-container">
+                    <select id="user-type-select">
+                        <option>recruiter</option>
+                        <option>job seeker</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="hidden" id="applicant-form">
+                <form class="login-form" enctype="multipart/form-data" method="post" th:action="@{/register/applicant}"
+                      th:object="${applicant}">
+                    <div class="inner-group-2">
+                        <label for="applicant-email">Email :</label>
+                        <input id="applicant-email" required th:field="*{email}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="applicant-password">Password :</label>
+                        <input id="applicant-password" required th:field="*{credentials.password}" type="password">
+                    </div>
+                    <br>
+                    <div class="inner-group-2">
+                        <label for="applicant-name">Name :</label>
+                        <input id="applicant-name" required th:field="*{name}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="applicant-location">Location :</label>
+                        <input id="applicant-location" required th:field="*{location}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="experience">Experience :</label>
+                        <input id="experience" min="0" placeholder="e.g., 10" required step="1"
+                               th:field="*{experience}" type="number">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="skills">Skills :</label>
+                        <input id="skills" placeholder="Skill 1, Skill 2, Skill 3, etc" required th:field="*{skills}"
+                               type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="resume">Resume :</label>
+                        <input id="resume" name="resumeFile" required type="file">
+                    </div>
+                    <div class="inner-group-2">
+                        <div class="container-flex-right">
+                            <button class="btn" name="submit" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="hidden" id="recruiter-form">
+                <form class="login-form" enctype="multipart/form-data" method="post" th:action="@{/register/recruiter}"
+                      th:object="${recruiter}">
+                    <div class="inner-group-2">
+                        <label for="recruiter-userid">Email :</label>
+                        <input id="recruiter-userid" required th:field="*{email}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="recruiter-password">Password :</label>
+                        <input id="recruiter-password" required th:field="*{credentials.password}" type="password">
+                    </div>
+                    <br>
+                    <div class="inner-group-2">
+                        <label for="recruiter-name">Organization :</label>
+                        <input id="recruiter-name" required th:field="*{name}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="recruiter-location">Location :</label>
+                        <input id="recruiter-location" required th:field="*{location}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label for="logo">Logo :</label>
+                        <input id="logo" name="logoFile" required type="file">
+                    </div>
+                    <div class="inner-group-2">
+                        <div class="container-flex-right">
+                            <button class="btn" name="submit" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer-2"></footer>
+
+<script defer th:src="@{/js/user-type-selection.js}"></script>
+</body>
+</html>

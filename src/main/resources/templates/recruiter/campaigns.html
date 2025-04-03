@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/styles-3.css}"/>
+    <link href="/static/css/styles-3.css" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.svg}"/>
+    <title>Hiring Platform</title>
+</head>
+
+<body>
+<header>
+    <div class="site-bar">
+        <div class="site-bar-left">
+            <a class="site-heading" href="/HiringPlatform/">Recruiter Portal</a>
+        </div>
+        <div class="site-bar-center">
+            <div class="nav-container">
+                <a class="nav-item" href="/HiringPlatform/">Home</a>
+                <a class="nav-item" href="/HiringPlatform/recruiter/profile">Profile</a>
+                <a class="nav-item active" href="/HiringPlatform/recruiter/campaigns">Campaigns</a>
+            </div>
+        </div>
+        <div class="site-bar-right">
+            <a class="btn" href="/HiringPlatform/logout">Logout</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container-flex-full"
+         th:classappend="${(showApplications != null || showCreateCampaign != null || showEditCampaign != null) ? 'blur' : ''}">
+        <div class="container-flex-right margin-top-40">
+            <a class="btn btn-medium" th:href="@{/recruiter/campaigns/create}">New Campaign</a>
+        </div>
+        <div class="subcontainer-flex-flexgrow margin-top-60">
+            <h1 class="h1-medium-italic-bold user-select-none">Created Campaigns</h1>
+            <hr class="horizontal-hr">
+            <div class="container-scrollable-c design-container">
+                <div class="container" th:each="jobPost, stat : ${session.jobPosts}">
+                    <div class="linear-container">
+                        <div class="linear-container-left">
+                            <h3 th:text="${jobPost.title}">Title</h3>
+                            <h3 class="h3-desc" th:text="${jobPost.desc}">Description</h3>
+                        </div>
+                        <div class="linear-container-right">
+                            <a class="btn" th:href="@{/recruiter/campaigns/edit(postId=${jobPost.postId})}">Edit</a>
+                            <a class="btn" th:href="@{/recruiter/campaigns/delete(postId=${jobPost.postId})}">Delete</a>
+                            <a class="btn"
+                               th:href="@{/recruiter/campaigns/view-applications(postId=${jobPost.postId})}">View
+                                Applications</a>
+                        </div>
+                    </div>
+                    <hr class="horizontal-hr" th:if="${!stat.last}">
+                </div>
+
+                <div class="container-flex-center margin-40-0 user-select-none"
+                     th:if="${session.jobPosts == null or session.jobPosts.isEmpty()}">
+                    <h2 class="h2-medium-bold">
+                        You have not created any job posts yet.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-container-full" id="view-applications" th:if="${showApplications}">
+        <div class="pop-up-large">
+            <div class="container-flex-full">
+                <div class="pop-up-header">
+                    <div class="container-flex-center">
+                        <h1 class="h1-small-italic-bold-2">Full Stack Java Developer <br> Applications</h1>
+                    </div>
+                </div>
+                <div class="container-scrollable-c-p margin-top-120">
+
+                    <div class="container" th:each="jobApplication, stat : ${jobApplications}">
+                        <div class="linear-container">
+                            <div class="linear-container-left">
+                                <h3 th:text="${jobApplication.applicant.name}">Name</h3>
+                                <h3 th:text="${jobApplication.appliedOn}">Applied on</h3>
+                                <a class="link" target="_blank"
+                                   th:href="@{/recruiter/view-applicant(applicantId=${jobApplication.applicant.applicantId})}">View
+                                    profile</a>
+                            </div>
+                            <div class="linear-container-right">
+                                <h3 th:if="${jobApplication.status == 1}">Shortlisted</h3>
+                                <h3 th:if="${jobApplication.status == 2}">Accepted</h3>
+                                <h3 th:if="${jobApplication.status == -1}">Rejected</h3>
+                                <a class="btn"
+                                   th:href="@{/recruiter/campaigns/shortlist-candidate(applicationId=${jobApplication.id}, postId=${jobApplication.jobPost.postId})}"
+                                   th:if="${jobApplication.status == 0}">Accept</a>
+                                <a class="btn btn-disabled" th:unless="${jobApplication.status == 0}">Accept</a>
+                                <a class="btn"
+                                   th:href="@{/recruiter/campaigns/reject-candidate(applicationId=${jobApplication.id}, postId=${jobApplication.jobPost.postId})}"
+                                   th:if="${jobApplication.status == 0}">Reject</a>
+                                <a class="btn btn-disabled" th:unless="${jobApplication.status == 0}">Reject</a>
+                            </div>
+                        </div>
+                        <hr class="horizontal-hr" th:if="${!stat.last}">
+                    </div>
+
+                    <div class="container-flex-center margin-top-120"
+                         th:if="${jobApplications == null or jobApplications.isEmpty()}">
+                        <h2 class="h2-medium-bold">
+                            There are no applications for this job post yet.
+                        </h2>
+                    </div>
+                </div>
+                <div class="pop-up-footer-2">
+                    <form method="get" th:action="@{/recruiter/campaigns/view-applications}">
+                        <div class="linear-container">
+
+                            <div class="linear-container-left">
+                                <input name="postId" th:value="${jobPostId}" type="hidden">
+                                <label for="rpp">Records per page:</label>
+                                <input id="rpp" name="pageSize"
+                                       th:value="${session.pageSize == null ? 15 : session.pageSize}"
+                                       type="number">
+                                <label for="vp">View page:</label>
+                                <input id="vp" name="pageNo" th:value="${session.pageNo == null ? 1 : session.pageNo}"
+                                       type="number">
+                                <label for="tp">Total pages:</label>
+                                <input disabled id="tp" th:value="${session.maxPageNo == null ? '' : session.maxPageNo}"
+                                       type="number">
+                                <label for="sort">Sort by:</label>
+                                <select id="sort" name="sortBy">
+                                    <option th:selected="${session.sortBy == 'Applied on'}" th:text="'Applied on'"
+                                            th:value="'Applied on'">Applied on
+                                    </option>
+                                    <option th:selected="${session.sortBy == 'Experience'}" th:text="'Experience'"
+                                            th:value="'Experience'">Experience
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="linear-container-right">
+                                <button class="btn btn-small" type="submit">Go</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="linear-container margin-top-40">
+                        <div class="linear-container-right">
+                            <a class="btn" th:href="@{/recruiter/campaigns}">Close</a>
+                            <a class="btn"
+                               th:href="@{/recruiter/campaigns/{postId}/download-accepted-candidate-details(postId=${jobPostId})}">Download
+                                accepted candidate details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-container-full" th:if="${showEditCampaign}">
+        <div class="pop-up-fit">
+            <div class="container-flex-full">
+                <div class="pop-up-header container-flex-center">
+                    <h1 class="h1-small-italic-bold-2">Edit Campaign</h1>
+                </div>
+                <div class="pop-up-body"></div>
+                <form method="post" th:action="@{/recruiter/campaigns/edit-campaign}" th:object="${jobPostEdit}">
+                    <div class="inner-group-2">
+                        <label>Title :</label>
+                        <input placeholder="Title" required th:field="*{title}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label>Description :</label>
+                        <textarea placeholder="Description" required th:field="*{desc}"></textarea>
+                    </div>
+                    <div class="inner-group-2">
+                        <label>Location :</label>
+                        <input placeholder="Location" required th:field="*{location}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label>Experience :</label>
+                        <input placeholder="Experience" required th:field="*{minExp}" type="text">
+                    </div>
+                    <input name="postId" th:value="*{postId}" type="hidden">
+
+                    <div class="pop-up-footer container-flex-right">
+                        <a class="btn" th:href="@{/recruiter/campaigns}">Close</a>
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up-container-full" th:if="${showCreateCampaign}">
+        <div class="pop-up-fit">
+            <div class="container-flex-full">
+                <div class="pop-up-header container-flex-center">
+                    <h1 class="h1-small-italic-bold-2">Create Campaign</h1>
+                </div>
+                <div class="pop-up-body"></div>
+                <form method="post" th:action="@{/recruiter/campaigns/create-campaign}" th:object="${jobPostCreate}">
+                    <div class="inner-group-2">
+                        <label>Title :</label>
+                        <input placeholder="Title" required th:field="*{title}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label>Description :</label>
+                        <textarea placeholder="Description" required th:field="*{desc}"></textarea>
+                    </div>
+                    <div class="inner-group-2">
+                        <label>Location :</label>
+                        <input placeholder="Location" required th:field="*{location}" type="text">
+                    </div>
+                    <div class="inner-group-2">
+                        <label>Experience :</label>
+                        <input placeholder="Experience" required th:name="minExp" type="text">
+                    </div>
+                    <div class="pop-up-footer container-flex-right">
+                        <a class="btn" th:href="@{/recruiter/campaigns}">Close</a>
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>
