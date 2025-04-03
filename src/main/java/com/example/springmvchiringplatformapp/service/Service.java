@@ -56,12 +56,21 @@ public class Service {
         recruiter.setJobPosts(new ArrayList<>());
         recruiterService.save(recruiter);
 
+        Recruiter recruiter2 = new Recruiter();
+        recruiter2.setName("Async");
+        recruiter2.setEmail("hr@async.com");
+        recruiter2.setLocation("Bangalore");
+        recruiter2.setLogo("media/logo-1.jpg");
+        recruiter2.setCredentials(new RecruiterCredentials("hr@async.com", BCrypt.hashpw("pass123", BCrypt.gensalt()), recruiter2));
+        recruiter2.setJobPosts(new ArrayList<>());
+        recruiterService.save(recruiter2);
+
         JobPost jobPost = new JobPost();
         jobPost.setRecruiter(recruiter);
         jobPost.setTitle("Full stack developer");
         jobPost.setDesc("Join our agile team to develop and maintain responsive web applications. You'll build dynamic user interfaces with HTML, CSS, and JavaScript, and develop robust back-end services using Java (Spring Boot). Collaborate with cross-functional teams to create and integrate RESTful APIs and manage databases.");
         jobPost.setLocation("Chennai");
-        jobPost.setMinExp(6);
+        jobPost.setMinExp(4);
         jobPost.setJobApplications(new ArrayList<>());
         jobPostService.save(jobPost);
 
@@ -70,17 +79,35 @@ public class Service {
         jobPost2.setTitle("Backend developer");
         jobPost2.setDesc("We are looking for a Backend Developer to design and build robust server-side applications. You will develop REST APIs, manage databases, and integrate with front-end systems to deliver scalable solutions.");
         jobPost2.setLocation("Chennai");
-        jobPost2.setMinExp(4);
+        jobPost2.setMinExp(3);
         jobPost2.setJobApplications(new ArrayList<>());
         jobPostService.save(jobPost2);
+
+        JobPost jobPost3 = new JobPost();
+        jobPost3.setRecruiter(recruiter2);
+        jobPost3.setTitle("Frontend developer");
+        jobPost3.setDesc("We are looking for a skilled Frontend Developer to join our team and help build responsive, high-performance web applications. You will work closely with designers and backend developers to deliver seamless user experiences.");
+        jobPost3.setLocation("Bangalore");
+        jobPost3.setMinExp(3);
+        jobPost3.setJobApplications(new ArrayList<>());
+        jobPostService.save(jobPost3);
+
+        JobPost jobPost4 = new JobPost();
+        jobPost4.setRecruiter(recruiter2);
+        jobPost4.setTitle("UI/UX Designer");
+        jobPost4.setDesc("Design intuitive, visually appealing, and user-friendly digital experiences. Collaborate with product managers, developers, and stakeholders to create interfaces that enhance engagement and usability.");
+        jobPost4.setLocation("Remote");
+        jobPost4.setMinExp(2);
+        jobPost4.setJobApplications(new ArrayList<>());
+        jobPostService.save(jobPost4);
 
         JobApplication jobApplication = new JobApplication(jobPost, applicant);
         jobApplicationService.save(jobApplication);
 
-        JobApplication jobApplication2 = new JobApplication(jobPost, applicant2);
+        JobApplication jobApplication2 = new JobApplication(jobPost4, applicant);
         jobApplicationService.save(jobApplication2);
-    }
 
-    public void run1() {
+        JobApplication jobApplication3 = new JobApplication(jobPost, applicant2);
+        jobApplicationService.save(jobApplication3);
     }
 }

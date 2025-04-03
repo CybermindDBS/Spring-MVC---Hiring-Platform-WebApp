@@ -13,7 +13,6 @@ public class SpringMvcHiringPlatformAppApplication {
 
         Service service = context.getBean(Service.class);
         service.setup();
-        service.run1();
     }
 
 }

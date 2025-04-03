@@ -13,7 +13,7 @@ public class UserAuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("userId") == null) {
-            response.sendRedirect("/HiringPlatform/login");
+            response.sendRedirect("/login");
             return false;
         }
         return true;
