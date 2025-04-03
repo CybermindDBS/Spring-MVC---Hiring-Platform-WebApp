@@ -1,1 +1,1 @@
-# Spring-MVC---Hiring-Platform-WebApp
+# SpringMVC-HiringPlatformWebApp
