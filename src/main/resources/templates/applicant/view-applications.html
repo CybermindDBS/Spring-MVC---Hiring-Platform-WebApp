@@ -101,7 +101,7 @@
                                    th:href="@{/applicant/delete-application(jobAplId=${jobApl.id})}">Delete</a>
                             </div>
                         </div>
-                        <hr th:if="${!stat.last}">
+                        <hr th:if="${!stat.last || !rejected.isEmpty()}">
                     </div>
                     <div class="container" th:each="jobApl, stat : ${rejected}">
                         <div class="linear-container">

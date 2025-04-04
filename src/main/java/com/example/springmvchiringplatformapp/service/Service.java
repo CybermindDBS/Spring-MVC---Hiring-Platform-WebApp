@@ -57,7 +57,7 @@ public class Service {
         recruiterService.save(recruiter);
 
         Recruiter recruiter2 = new Recruiter();
-        recruiter2.setName("Async");
+        recruiter2.setName("Async Technologies");
         recruiter2.setEmail("hr@async.com");
         recruiter2.setLocation("Bangalore");
         recruiter2.setLogo("media/logo-1.jpg");
@@ -68,7 +68,24 @@ public class Service {
         JobPost jobPost = new JobPost();
         jobPost.setRecruiter(recruiter);
         jobPost.setTitle("Full stack developer");
-        jobPost.setDesc("Join our agile team to develop and maintain responsive web applications. You'll build dynamic user interfaces with HTML, CSS, and JavaScript, and develop robust back-end services using Java (Spring Boot). Collaborate with cross-functional teams to create and integrate RESTful APIs and manage databases.");
+        jobPost.setDesc("We are looking for a skilled Full Stack Java Developer to join our team. The ideal candidate should have strong backend development experience with Java and Spring frameworks, and solid frontend development skills using technologies like HTML, CSS, JavaScript, and modern frameworks such as Angular or React.<br>" +
+                "<br>" +
+                "Responsibilities:<br>" +
+                "I. Develop and maintain web applications using Java, Spring Boot, and modern frontend frameworks<br>" +
+                "II. Design RESTful APIs and integrate with databases (e.g., MySQL, PostgreSQL)<br>" +
+                "III. Write clean, maintainable, and efficient code<br>" +
+                "IV. Collaborate with cross-functional teams including designers, QA, and DevOps<br>" +
+                "V. Participate in code reviews and provide constructive feedback<br>" +
+                "VI. Debug, test, and optimize application performance<br>" +
+                "<br>" +
+                "Requirements:<br>" +
+                "I. Strong proficiency in Java, Spring Boot, and related frameworks<br>" +
+                "II. Experience with frontend technologies: HTML, CSS, JavaScript, and Angular or React<br>" +
+                "III. Knowledge of REST APIs, JSON, and web services<br>" +
+                "IV. Familiarity with relational databases and SQL<br>" +
+                "V. Experience with version control systems like Git<br>" +
+                "VI. Understanding of Agile development practices");
+
         jobPost.setLocation("Chennai");
         jobPost.setMinExp(4);
         jobPost.setJobApplications(new ArrayList<>());
@@ -86,7 +103,25 @@ public class Service {
         JobPost jobPost3 = new JobPost();
         jobPost3.setRecruiter(recruiter2);
         jobPost3.setTitle("Frontend developer");
-        jobPost3.setDesc("We are looking for a skilled Frontend Developer to join our team and help build responsive, high-performance web applications. You will work closely with designers and backend developers to deliver seamless user experiences.");
+        jobPost3.setDesc("Seeking a highly skilled and detail-oriented Front End Developer to contribute to the development of responsive, accessible, and user-centric web applications. The successful candidate will demonstrate proficiency in modern web technologies and possess the ability to translate complex design requirements into functional, scalable interfaces.<br>" +
+                "<br>" +
+                "Primary Responsibilities:<br>" +
+                "I. Develop and maintain high-quality front-end code using HTML, CSS, and JavaScript<br>" +
+                "II. Implement interactive and responsive user interfaces utilizing frameworks such as React, Angular, or Vue<br>" +
+                "III. Ensure front-end performance optimization, cross-browser compatibility, and adherence to accessibility standards<br>" +
+                "IV. Integrate user-facing components with RESTful APIs and backend services<br>" +
+                "V. Collaborate with UX/UI designers, backend engineers, and product stakeholders to deliver seamless user experiences<br>" +
+                "VI. Participate in code reviews, provide feedback, and adhere to development best practices<br>" +
+                "VII. Conduct thorough testing and debugging to ensure application stability and performance<br>" +
+                "<br>" +
+                "Required Qualifications:<br>" +
+                "I. Strong command of HTML5, CSS3, and JavaScript (ES6+)<br>" +
+                "II. Proven experience with one or more modern front-end frameworks (React, Angular, or Vue)<br>" +
+                "III. Familiarity with RESTful services and asynchronous data handling<br>" +
+                "IV. Understanding of responsive design principles and mobile-first development<br>" +
+                "V. Experience with Git and collaborative development workflows<br>" +
+                "VI. Ability to write modular, maintainable, and well-documented code");
+
         jobPost3.setLocation("Bangalore");
         jobPost3.setMinExp(3);
         jobPost3.setJobApplications(new ArrayList<>());

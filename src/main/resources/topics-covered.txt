@@ -1,11 +1,4 @@
-Time Taken:
-Planning: day 1
-Spring data jpa: 2 days
-Spring web mvc:
-Frontend:
-
 Covered:-
-
 Spring Web MVC:
 
 Data binding (one way & two way)
@@ -37,8 +30,10 @@ Interceptors (pre & post request processing) (for checking whether session is ex
 @ControllerAdvice and @ExceptionHandler
 
 
-Not covered:
+Not covered:-
 Spring MVC Tag Library (not covered since we are using Thymeleaf for our project.)
+
+
 
 
 Spring Data Jpa:

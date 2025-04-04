@@ -15,7 +15,7 @@ public class JobPost {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long postId;
     private String title;
-    @Column(name = "desc", length = 1000)
+    @Column(name = "desc", length = 5000)
     private String desc;
     private int minExp;
     private String location;

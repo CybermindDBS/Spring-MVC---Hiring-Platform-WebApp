@@ -704,3 +704,7 @@ a.active {
 .justify-center {
     justify-content: center;
 }
+
+.white-space-pre-wrap {
+    white-space: pre-wrap;
+}

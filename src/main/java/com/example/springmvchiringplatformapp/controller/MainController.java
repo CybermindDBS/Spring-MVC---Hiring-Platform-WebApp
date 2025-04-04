@@ -152,7 +152,6 @@ public class MainController {
             session.setAttribute("userId", credentials.getUserId());
 
             Cookie cookie = new Cookie("accountType", "applicant");
-            cookie.setHttpOnly(true);
             response.addCookie(cookie);
 
             return "redirect:/";
@@ -160,7 +159,6 @@ public class MainController {
             session.setAttribute("userId", credentials.getUserId());
 
             Cookie cookie = new Cookie("accountType", "recruiter");
-            cookie.setHttpOnly(true);
             response.addCookie(cookie);
 
             return "redirect:/";

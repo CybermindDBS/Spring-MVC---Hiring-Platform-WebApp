@@ -92,8 +92,8 @@
                                 <h3 th:if="${jobApplication.status == -1}">Rejected</h3>
                                 <a class="btn"
                                    th:href="@{/recruiter/campaigns/shortlist-candidate(applicationId=${jobApplication.id}, postId=${jobApplication.jobPost.postId})}"
-                                   th:if="${jobApplication.status == 0}">Accept</a>
-                                <a class="btn btn-disabled" th:unless="${jobApplication.status == 0}">Accept</a>
+                                   th:if="${jobApplication.status == 0}">Select</a>
+                                <a class="btn btn-disabled" th:unless="${jobApplication.status == 0}">Select</a>
                                 <a class="btn"
                                    th:href="@{/recruiter/campaigns/reject-candidate(applicationId=${jobApplication.id}, postId=${jobApplication.jobPost.postId})}"
                                    th:if="${jobApplication.status == 0}">Reject</a>
@@ -177,7 +177,7 @@
                     </div>
                     <div class="inner-group-2">
                         <label>Experience :</label>
-                        <input placeholder="Experience" required th:field="*{minExp}" type="text">
+                        <input placeholder="Experience" required th:field="*{minExp}" type="number" min="0" step="1">
                     </div>
                     <input name="postId" th:value="*{postId}" type="hidden">
 
@@ -212,7 +212,7 @@
                     </div>
                     <div class="inner-group-2">
                         <label>Experience :</label>
-                        <input placeholder="Experience" required th:name="minExp" type="text">
+                        <input placeholder="Experience" required th:name="minExp" type="number" min="0" step="1">
                     </div>
                     <div class="pop-up-footer container-flex-right">
                         <a class="btn" th:href="@{/recruiter/campaigns}">Close</a>
